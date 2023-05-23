@@ -184,6 +184,94 @@ export const asyncRoutes = [
     ]
   },
 
+  {
+    path: '/registration',
+    component: Layout,
+    children: [
+      {
+        path: 'index',
+        component: () => import('@/views/clipboard/index'),
+        name: 'Registration',
+        meta: { title: '去向信息登记', icon: 'clipboard' }
+      }
+    ]
+  },
+
+  {
+    path: '/board',
+    component: Layout,
+    children: [
+      {
+        path: 'index',
+        component: () => import('@/views/clipboard/index'),
+        name: 'Registration',
+        meta: { title: '留言板', icon: 'clipboard' }
+      }
+    ]
+  },
+
+  {
+    path: '/manage',
+    component: Layout,
+    redirect: '/excel/export-excel',
+    name: 'Manage',
+    meta: {
+      title: '管理面板',
+      icon: 'excel'
+    },
+    children: [
+      {
+        path: 'export-excel',
+        component: () => import('@/views/excel/export-excel'),
+        name: 'StudentInformation',
+        meta: { title: '学生信息管理' }
+      },
+      {
+        path: 'export-selected-excel',
+        component: () => import('@/views/excel/select-excel'),
+        name: 'GraduateDestination',
+        meta: { title: '毕业去向管理' }
+      }
+    ]
+  },
+
+  {
+    path: '/analyze',
+    component: Layout,
+    redirect: '/excel/export-excel',
+    name: 'Analyze',
+    meta: {
+      title: '分析模块',
+      icon: 'excel'
+    },
+    children: [
+      {
+        path: 'export-excel',
+        component: () => import('@/views/excel/export-excel'),
+        name: 'GradeAnalysis',
+        meta: { title: '年级分析' }
+      },
+      {
+        path: 'export-selected-excel',
+        component: () => import('@/views/excel/select-excel'),
+        name: 'MajorAnalysis',
+        meta: { title: '专业分析' }
+      },
+      {
+        path: 'export-excel',
+        component: () => import('@/views/excel/export-excel'),
+        name: 'ClassAnalysis',
+        meta: { title: '班级分析' }
+      },
+      {
+        path: 'export-excel',
+        component: () => import('@/views/excel/export-excel'),
+        name: 'CityAnalysis',
+        meta: { title: '城市分析' }
+      }
+    ]
+  },
+
   /** when your routing map is too long, you can split it into small modules **/
   componentsRouter,
   chartsRouter,
