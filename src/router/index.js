@@ -11,6 +11,10 @@ import componentsRouter from './modules/components'
 import chartsRouter from './modules/charts'
 import tableRouter from './modules/table'
 import nestedRouter from './modules/nested'
+import analyzeRouter from './system/analyze'
+import boardRouter from './system/board'
+import manageRouter from './system/manage'
+import registrationRouter from './system/registration'
 
 /**
  * Note: sub-menu only appear when route children.length >= 1
@@ -79,7 +83,7 @@ export const constantRoutes = [
         path: 'dashboard',
         component: () => import('@/views/dashboard/index'),
         name: 'Dashboard',
-        meta: { title: 'Dashboard', icon: 'dashboard', affix: true }
+        meta: { title: '毕业生去向分析管理系统 ', icon: 'dashboard', affix: true }
       }
     ]
   },
@@ -129,6 +133,13 @@ export const constantRoutes = [
  * the routes that need to be dynamically loaded based on user roles
  */
 export const asyncRoutes = [
+
+  /** system **/
+  registrationRouter,
+  boardRouter,
+  manageRouter,
+  analyzeRouter,
+
   {
     path: '/permission',
     component: Layout,
@@ -180,94 +191,6 @@ export const asyncRoutes = [
         component: () => import('@/views/icons/index'),
         name: 'Icons',
         meta: { title: 'Icons', icon: 'icon', noCache: true }
-      }
-    ]
-  },
-
-  {
-    path: '/registration',
-    component: Layout,
-    children: [
-      {
-        path: 'index',
-        component: () => import('@/views/clipboard/index'),
-        name: 'Registration',
-        meta: { title: '去向信息登记', icon: 'clipboard' }
-      }
-    ]
-  },
-
-  {
-    path: '/board',
-    component: Layout,
-    children: [
-      {
-        path: 'index',
-        component: () => import('@/views/clipboard/index'),
-        name: 'Registration',
-        meta: { title: '留言板', icon: 'clipboard' }
-      }
-    ]
-  },
-
-  {
-    path: '/manage',
-    component: Layout,
-    redirect: '/excel/export-excel',
-    name: 'Manage',
-    meta: {
-      title: '管理面板',
-      icon: 'excel'
-    },
-    children: [
-      {
-        path: 'export-excel',
-        component: () => import('@/views/excel/export-excel'),
-        name: 'StudentInformation',
-        meta: { title: '学生信息管理' }
-      },
-      {
-        path: 'export-selected-excel',
-        component: () => import('@/views/excel/select-excel'),
-        name: 'GraduateDestination',
-        meta: { title: '毕业去向管理' }
-      }
-    ]
-  },
-
-  {
-    path: '/analyze',
-    component: Layout,
-    redirect: '/excel/export-excel',
-    name: 'Analyze',
-    meta: {
-      title: '分析模块',
-      icon: 'excel'
-    },
-    children: [
-      {
-        path: 'export-excel',
-        component: () => import('@/views/excel/export-excel'),
-        name: 'GradeAnalysis',
-        meta: { title: '年级分析' }
-      },
-      {
-        path: 'export-selected-excel',
-        component: () => import('@/views/excel/select-excel'),
-        name: 'MajorAnalysis',
-        meta: { title: '专业分析' }
-      },
-      {
-        path: 'export-excel',
-        component: () => import('@/views/excel/export-excel'),
-        name: 'ClassAnalysis',
-        meta: { title: '班级分析' }
-      },
-      {
-        path: 'export-excel',
-        component: () => import('@/views/excel/export-excel'),
-        name: 'CityAnalysis',
-        meta: { title: '城市分析' }
       }
     ]
   },
