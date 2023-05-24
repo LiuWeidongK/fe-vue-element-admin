@@ -10,7 +10,7 @@ const manageRouter = {
   meta: {
     title: '管理面板',
     icon: 'excel'
-  }, 
+  },
   children: [
     {
       path: 'student-info',

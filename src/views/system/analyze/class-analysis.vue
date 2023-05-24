@@ -1,3 +1,3 @@
 <template>
-    <dev>class...</dev>
+  <dev>class...</dev>
 </template>

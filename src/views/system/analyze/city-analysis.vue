@@ -1,3 +1,3 @@
 <template>
-    <dev>city...</dev>
+  <dev>city...</dev>
 </template>
